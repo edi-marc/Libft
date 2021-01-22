@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 17:41:07 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/19 16:03:42 by edi-marc         ###   ########.fr       */
+/*   Created: 2021/01/20 17:56:04 by edi-marc          #+#    #+#             */
+/*   Updated: 2021/01/20 19:50:35 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t i;
+	void	*p;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	p = malloc(count * size);
+	if (p)
+		ft_bzero(p, count * size);
+	return (p);
 }

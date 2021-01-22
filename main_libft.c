@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 15:15:11 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/17 13:37:28 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:39:28 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <ctype.h>
 
 #include "libft.h"
 
@@ -35,6 +36,7 @@ int main(void)
 	char str_m[]="c1ao_a";
 	char str_b[]="ciao_a_tutti";
 	char str_i[]="Iao";
+	char str_v[1]="\0";
 	char *str_a;
 
 	char num_1[]=" 	d";
@@ -54,6 +56,7 @@ int main(void)
 	printf("%d\n",strncmp(str_s, str_i, 2));
 	printf("%d\n",strncmp(str_m, str_b, 4));
 	printf("%d\n",strncmp(str_s, str_b, 4));
+	printf("%d\n",strncmp("\200", "\0", 4));
 	
 	printf("TEST ft function\n");
 	printf("%d\n",ft_strncmp(str_n, str_n, 42));
@@ -61,6 +64,7 @@ int main(void)
 	printf("%d\n",ft_strncmp(str_s, str_i, 2));
 	printf("%d\n",ft_strncmp(str_m, str_b, 4));
 	printf("%d\n",ft_strncmp(str_s, str_b, 4));
+	printf("%d\n",ft_strncmp("\200", "\0", 4));
 	
 	printf("\n-- TEST atoi --\n\n");
 
@@ -307,6 +311,465 @@ int main(void)
 	printf("%s\n", ft_memchr(str_n, 0, 28));
 	printf("%s\n", ft_memchr(str_b, 116, 7));
 	printf("%s\n", ft_memchr(str_b, 116, 20));
+	
+	printf("\n-- TEST strchr --\n\n");
+
+	printf("TEST original function\n");
+	/* Not found  - B */
+	printf("%p\n",strchr(str_n, 66));
+	printf("%s\n",strchr(str_n, 66));
+	/* null character  */
+	printf("%p\n",strchr(str_s, 0));
+	printf("%s\n",strchr(str_s, 0));
+	/* last character - o  */
+	printf("%p\n",strchr(str_s, 111));
+	printf("%s\n",strchr(str_s, 111));
+	/* first character - c */
+	printf("%p\n",strchr(str_m, 99));
+	printf("%s\n",strchr(str_m, 99));
+	/* third character - a  */
+	printf("%p\n",strchr(str_s, 97));
+	printf("%s\n",strchr(str_s, 97));
+	/* penultimate character - t */
+	printf("%p\n",strchr(str_b, 116));
+	printf("%s\n",strchr(str_b, 116));
+	/* int not in ascii - loop */
+	//printf("%p\n",ft_strchr(str_b, 242));
+	//printf("%s\n",ft_strchr(str_b, 242));
+	
+	printf("TEST ft function\n");
+	/* Not found  - B */
+	printf("%p\n",ft_strchr(str_n, 66));
+	printf("%s\n",ft_strchr(str_n, 66));
+	/* null character  */
+	printf("%p\n",ft_strchr(str_s, 0));
+	printf("%s\n",ft_strchr(str_s, 0));
+	/* last character - o  */
+	printf("%p\n",ft_strchr(str_s, 111));
+	printf("%s\n",ft_strchr(str_s, 111));
+	/* first character - c */
+	printf("%p\n",ft_strchr(str_m, 99));
+	printf("%s\n",ft_strchr(str_m, 99));
+	/* third character - a  */
+	printf("%p\n",ft_strchr(str_s, 97));
+	printf("%s\n",ft_strchr(str_s, 97));
+	/* penultimate character - t */
+	printf("%p\n",ft_strchr(str_b, 116));
+	printf("%s\n",ft_strchr(str_b, 116));
+	/* int not in ascii - null */
+	//printf("%p\n",ft_strchr(str_b, 242));
+	//printf("%s\n",ft_strchr(str_b, 242));
+
+	printf("\n-- TEST isalpha --\n\n");
+
+	printf("TEST original function\n");
+	printf("%d\n", isalpha(65));
+	printf("%d\n", isalpha(64));
+	printf("%d\n", isalpha(121));
+	printf("%d\n", isalpha(123));
+	printf("%d\n", isalpha(500));
+	
+	printf("TEST ft function\n");
+	printf("%d\n", ft_isalpha(65));
+	printf("%d\n", ft_isalpha(64));
+	printf("%d\n", ft_isalpha(121));
+	printf("%d\n", ft_isalpha(122));
+	printf("%d\n", ft_isalpha(500));
+
+	printf("\n-- TEST isdigit --\n\n");
+
+	printf("TEST original function\n");
+	printf("%d\n", isdigit(48));
+	printf("%d\n", isdigit(47));
+	printf("%d\n", isdigit('\71'));
+	printf("%d\n", isdigit('\72'));
+	printf("%d\n", isdigit(500));
+	
+	printf("TEST ft function\n");
+	printf("%d\n", ft_isdigit(48));
+	printf("%d\n", ft_isdigit(47));
+	printf("%d\n", ft_isdigit('\71'));
+	printf("%d\n", ft_isdigit('\72'));
+	printf("%d\n", ft_isdigit(500));
+
+	printf("\n-- TEST isalnum --\n\n");
+
+	printf("TEST original function\n");
+
+	printf("%d\n", isalnum('\100'));
+	printf("%d\n", isalnum('\101'));
+	printf("%d\n", isalnum('\72'));
+	printf("%d\n", isalnum('\71'));
+	printf("%d\n", isalnum(500));
+
+	printf("TEST ft function\n");
+
+	printf("%d\n", ft_isalnum('\100'));
+	printf("%d\n", ft_isalnum('\101'));
+	printf("%d\n", ft_isalnum('\72'));
+	printf("%d\n", ft_isalnum('\71'));
+	printf("%d\n", ft_isalnum(500));
+
+	printf("\n-- TEST isascii --\n\n");
+
+	printf("TEST original function\n");
+
+	printf("%d\n", isascii(-60));
+	printf("%d\n", isascii(90));
+	printf("%d\n", isascii('\177'));
+	printf("%d\n", isascii(127));
+	printf("%d\n", isascii(128));
+	printf("%d\n", isascii(0));
+	printf("%d\n", isascii(500));
+	
+	printf("TEST ft function\n");
+
+	printf("%d\n", ft_isascii(-60));
+	printf("%d\n", ft_isascii(90));
+	printf("%d\n", ft_isascii('\177'));
+	printf("%d\n", ft_isascii(127));
+	printf("%d\n", ft_isascii(128));
+	printf("%d\n", ft_isascii(0));
+	printf("%d\n", ft_isascii(500));
+	
+	printf("\n-- TEST isprint --\n\n");
+
+	printf("TEST original function\n");
+
+	printf("%d\n", isprint(-60));
+	printf("%d\n", isprint('\40'));
+	printf("%d\n", isprint('\41'));
+	printf("%d\n", isprint(90));
+	printf("%d\n", isprint('\177'));
+	printf("%d\n", isprint(126));
+	printf("%d\n", isprint(128));
+	printf("%d\n", isprint('\115'));
+
+	printf("TEST ft function\n");
+
+	printf("%d\n", ft_isprint(-60));
+	printf("%d\n", ft_isprint('\40'));
+	printf("%d\n", ft_isprint('\41'));
+	printf("%d\n", ft_isprint(90));
+	printf("%d\n", ft_isprint('\177'));
+	printf("%d\n", ft_isprint(126));
+	printf("%d\n", ft_isprint(128));
+	printf("%d\n", ft_isprint('\115'));
+
+	printf("\n-- TEST toupper --\n\n");
+
+	printf("TEST original function\n");
+
+	printf("%d\n", toupper(-60));
+	printf("%d\n", toupper('\40'));
+	printf("%d\n", toupper('\41'));
+	printf("%d\n", toupper(90));
+	printf("%d\n", toupper('\177'));
+	printf("%d\n", toupper(126));
+	printf("%d\n", toupper(128));
+	printf("%d\n", toupper('\115'));
+	printf("%d\n", toupper(97));
+	printf("%d\n", toupper(122));
+
+	printf("TEST ft function\n");
+
+	printf("%d\n", ft_toupper(-60));
+	printf("%d\n", ft_toupper('\40'));
+	printf("%d\n", ft_toupper('\41'));
+	printf("%d\n", ft_toupper(90));
+	printf("%d\n", ft_toupper('\177'));
+	printf("%d\n", ft_toupper(126));
+	printf("%d\n", ft_toupper(128));
+	printf("%d\n", ft_toupper('\115'));
+	printf("%d\n", ft_toupper(97));
+	printf("%d\n", ft_toupper(122));
+
+	printf("\n-- TEST tolower --\n\n");
+
+	printf("TEST original function\n");
+
+	printf("%d\n", tolower(-60));
+	printf("%d\n", tolower(97));
+	printf("%d\n", tolower(100));
+	printf("%d\n", tolower(64));
+	printf("%d\n", tolower(65));
+	printf("%d\n", tolower(91));
+	printf("%d\n", tolower(90));
+	printf("%d\n", tolower('\122'));
+	printf("%d\n", tolower(500));
+
+	printf("TEST ft function\n");
+
+	printf("%d\n", ft_tolower(-60));
+	printf("%d\n", ft_tolower(97));
+	printf("%d\n", ft_tolower(100));
+	printf("%d\n", ft_tolower(64));
+	printf("%d\n", ft_tolower(65));
+	printf("%d\n", ft_tolower(91));
+	printf("%d\n", ft_tolower(90));
+	printf("%d\n", ft_tolower('\122'));
+	printf("%d\n", ft_tolower(500));
+
+	printf("\n-- TEST memcmp --\n\n");
+
+	printf("TEST original function\n");
+
+	printf("%d\n", memcmp("ciao", "ciaot", 4));
+	printf("%d\n", memcmp("ciao", "ciaot", 5));
+	printf("%d\n", memcmp("ciao\0", "ciao\0t", 42));
+	printf("%d\n", memcmp("ciao\0f", "ciao\0a", 42));
+	// seg fault
+	//printf("%d\n", memcmp((void *)0, "", 4));
+	//printf("%d\n", memcmp("", (void *)0, 4));
+	//printf("%d\n", memcmp((void *)0,(void *)0, 4));
+	printf("%d\n", memcmp("", (void *)0, 0));
+	// bus error
+	//printf("%d\n", memcmp("ciao", "ciao", -1));
+	
+	printf("TEST ft function\n");
+
+	printf("%d\n", ft_memcmp("ciao", "ciaot", 4));
+	printf("%d\n", ft_memcmp("ciao", "ciaot", 5));
+	printf("%d\n", ft_memcmp("ciao\0", "ciao\0t", 42));
+	printf("%d\n", ft_memcmp("ciao\0f", "ciao\0a", 42));
+	// seg fault
+	//printf("%d\n", ft_memcmp((void *)0, "", 4));
+	//printf("%d\n", ft_memcmp("", (void *)0, 4));
+	//printf("%d\n", ft_memcmp((void *)0,(void *)0, 4));
+	printf("%d\n", ft_memcmp("", (void *)0, 0));
+	// bus error
+	//printf("%d\n", ft_memcmp("ciao", "ciao", -1));
+	
+	printf("\n-- TEST strlcpy --\n\n");
+
+	printf("TEST original function\n");
+
+	printf("%lu\n", strlcpy(str_i, str_s, 0));
+	printf("%s\n", str_i);
+	printf("%lu\n", strlcpy(str_i, str_s, 1));
+	printf("%s\n", str_i);
+	printf("%lu\n", strlcpy(str_n, str_u, 0));
+	printf("%s\n", str_n);
+	printf("%lu\n", strlcpy(str_u, str_b, 2));
+	printf("%s\n", str_u);
+	printf("%lu\n", strlcpy(str_b, str_v, 3));
+	printf("%s\n", str_b);
+	// seg fault
+	//printf("%lu\n", strlcpy(NULL, NULL, 1));
+	// gcc error overflow
+	//printf("%lu\n", strlcpy(str_m, str_s, -1));
+	//printf("%lu\n", strlcpy(str_n, str_b, 42));
+	
+	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
+	
+	printf("TEST ft function\n");
+
+	printf("%lu\n", ft_strlcpy(str_i, str_s, 0));
+	printf("%s\n", str_i);
+	printf("%lu\n", ft_strlcpy(str_i, str_s, 1));
+	printf("%s\n", str_i);
+	printf("%lu\n", ft_strlcpy(str_n, str_u, 0));
+	printf("%s\n", str_n);
+	printf("%lu\n", ft_strlcpy(str_u, str_b, 2));
+	printf("%s\n", str_u);
+	printf("%lu\n", ft_strlcpy(str_b, str_v, 3));
+	printf("%s\n", str_b);
+	//no seg fault
+	//printf("%lu\n", ft_strlcpy(NULL, NULL, 1));
+	// no error (write all the source)
+	//printf("%lu\n", ft_strlcpy(str_m, str_s, -1));
+	//printf("%s\n", str_m);
+	//printf("%lu\n", ft_strlcpy(str_n, str_m, 42));
+	//printf("%s\n", str_n);
+
+	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
+	
+	printf("\n-- TEST strlcat --\n\n");
+
+	printf("TEST original function\n");
+
+	printf("%lu\n", strlcat(str_i, str_s, 0));
+	printf("%s\n", str_i);
+	printf("%lu\n", strlcat(str_i, str_s, 1));
+	printf("%s\n", str_i);
+	printf("%lu\n", strlcat(str_n, str_u, 0));
+	printf("%s\n", str_n);
+	printf("%lu\n", strlcat(str_u, str_b, 2));
+	printf("%s\n", str_u);
+	printf("%lu\n", strlcat(str_b, str_v, 3));
+	printf("%s\n", str_b);
+/*
+	write(1, "*--SP TEST--*\n", 14);	
+	char test1[42] = "\0q\0due";
+	write(1, test1, 42);
+	write(1, "\n", 1);
+	char test3[]="ciao2";
+	printf("%lu\n", strlcat(test1, test3, 4));
+	printf("%s\n", test1);
+	write(1, test1, 42);
+	write(1, "\n", 1);
+	write(1, "*--SP TEST--*\n", 14);	
+*/
+/*
+ *	test is not empty, there is some data in the memory	
+ *
+	char test[42];
+	write(1, test, 42);
+	write(1, "\n", 1);
+	char test2[]="ciao2";
+	printf("%lu\n", strlcat(test, test2, 3));
+	printf("%s\n", test);
+	write(1, test, 42);
+	write(1, "\n", 1);
+*/
+	// seg fault
+	//printf("%lu\n", strlcat(NULL, NULL, 1));
+	// gcc error overflow
+	//printf("%lu\n", strlcat(str_m, str_s, -1));
+	//printf("%lu\n", strlcat(str_n, str_b, 42));
+	
+	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
+	
+	printf("TEST ft function\n");
+
+	printf("%lu\n", ft_strlcat(str_i, str_s, 0));
+	printf("%s\n", str_i);
+	printf("%lu\n", ft_strlcat(str_i, str_s, 1));
+	printf("%s\n", str_i);
+	printf("%lu\n", ft_strlcat(str_n, str_u, 0));
+	printf("%s\n", str_n);
+	printf("%lu\n", ft_strlcat(str_u, str_b, 2));
+	printf("%s\n", str_u);
+	printf("%lu\n", ft_strlcat(str_b, str_v, 3));
+	printf("%s\n", str_b);
+/*
+	write(1, "*--SP TEST--*\n", 14);	
+	char test1[42] = "\0q\0due";
+	write(1, test1, 42);
+	write(1, "\n", 1);
+	char test3[]="ciao2";
+	printf("%lu\n", ft_strlcat(test1, test3, 4));
+	printf("%s\n", test1);
+	write(1, test1, 42);
+	write(1, "\n", 1);
+	write(1, "*--SP TEST--*\n", 14);	
+*/
+/*
+ *	test is not empty, there is some data in the memory	
+*/
+/*
+	char test[42];
+	write(1, test, 42);
+	write(1, "\n", 1);
+	char test2[]="ciao2";
+	printf("%lu\n", ft_strlcat(test, test2, 3));
+	printf("%s\n", test);
+	write(1, test, 42);
+	write(1, "\n", 1);
+*/
+	// seg fault
+	//printf("%lu\n", ft_strlcat(NULL, NULL, 1));
+	// no error overflow
+	//printf("%lu\n", ft_strlcat(str_m, str_s, -1));
+	//printf("%lu\n", ft_strlcat(str_n, str_b, 42));
+	
+	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
+	
+	printf("\n-- TEST strnstr --\n\n");
+
+	printf("TEST original function\n");
+
+	printf("%s\n", strnstr("ciao", "c", 0));
+	printf("%s\n", strnstr("ciao", "d", 42));
+	printf("%s\n", strnstr("ciao", "i", 1));
+	printf("%s\n", strnstr("ciao", "a", 42));
+	// seg fault
+	//printf("%s\n", strnstr("ciao", NULL, 0));
+	//printf("%s\n", strnstr(NULL, "ciao", 42));
+	printf("%s\n", strnstr("ciao", "ia\0j", 42));
+	printf("%s\n", strnstr("ciao", "iaj", 42));
+	printf("%s\n", strnstr("ciao", "o", -1));
+	printf("%s\n", strnstr("cia", "", 1));
+	
+	printf("TEST ft function\n");
+
+	printf("%s\n", ft_strnstr("ciao", "c", 0));
+	printf("%s\n", ft_strnstr("ciao", "d", 42));
+	printf("%s\n", ft_strnstr("ciao", "i", 1));
+	printf("%s\n", ft_strnstr("ciao", "a", 42));
+	// seg fault
+	//printf("%s\n", ft_strnstr("ciao", NULL, 0));
+	//printf("%s\n", ft_strnstr(NULL, "ciao", 42));
+	printf("%s\n", ft_strnstr("ciao", "ia\0j", 42));
+	printf("%s\n", ft_strnstr("ciao", "iaj", 42));
+	printf("%s\n", ft_strnstr("ciao", "o", -1));
+	printf("%s\n", ft_strnstr("cia", "", 1));
+
+	printf("\n-- TEST strdup --\n\n");
+
+	printf("TEST original function\n");
+
+	// seg fault
+	//printf("%s\n", strdup(NULL));
+	printf("%s\n", strdup(""));
+	printf("%s\n", strdup("ciao\0atutti"));
+	printf("%s\n", strdup("ciao_a_tutti"));
+	printf("%s\n", strdup("\200"));
+
+	printf("TEST ft function\n");
+	
+	// seg fault
+	//printf("%s\n", strdup(NULL));
+	printf("%s\n", ft_strdup(""));
+	printf("%s\n", ft_strdup("ciao\0atutti"));
+	printf("%s\n", ft_strdup("ciao_a_tutti"));
+	printf("%s\n", ft_strdup("\200"));
+
+	printf("\n-- TEST ft_substr --\n");
+
+	printf("%s\n", ft_substr("", 0, 2));
+	printf("%s\n", ft_substr(NULL, 0, 2));
+	printf("%s\n", ft_substr("ciaoatutti", 0, 42));
+	printf("%s\n", ft_substr("ciaoatutti", -1, -2));
+	printf("%s\n", ft_substr("ciaoatutti", 0, 42));
+	printf("%s\n", ft_substr("ciaoatutti", 10, 2));
+	printf("%s\n", ft_substr("ciaoatutti", 9, 1));
+	printf("%s\n", ft_substr("ciaoatutti", 9, 0));
+	printf("%s\n", ft_substr("ciaoatutti", 5, 100));
+	
+	printf("\n-- TEST ft_strjoin --\n");
+
+	printf("%s\n", ft_strjoin("ciao", "atutti"));
+	printf("%s\n", ft_strjoin(NULL, "atutti"));
+	printf("%s\n", ft_strjoin("ciao", NULL));
+	printf("%s\n", ft_strjoin("", ""));
+	printf("%s\n", ft_strjoin("", "c"));
+	printf("%s\n", ft_strjoin("ciao", ""));
+
+	printf("\n-- TEST ft_strtrim --\n");
+
+	printf("%s\n", ft_strtrim("dciaod", "d"));
+	printf("%s\n", ft_strtrim("\200dciao\200d", "d\200"));
+	printf("%s\n", ft_strtrim("\0ciao\0", "\0"));
+	printf("%s\n", ft_strtrim("\0ciao\0a", "\0a"));
+	printf("%s\n", ft_strtrim("\0ciao\na\0", "\0a"));
+	printf("%s\n", ft_strtrim("ciaoatutti", ""));
+	printf("%s\n", ft_strtrim(NULL, ""));
+	printf("%s\n", ft_strtrim("", NULL));
+	printf("%s\n", ft_strtrim("", ""));
+	printf("%s\n", ft_strtrim("ciao", "ciao\0"));
+	// correct behavoir
+	printf("%s\n", ft_strtrim("ciao", "ci\0ao"));
+	printf("%s\n", ft_strtrim("aaciaoaa", "a"));
+
+	printf("\n-- TEST ft_split --\n");
+
+	//printf("%s\n", ft_split("ciao1ci1ao", "1"));
+	//printf("%s\n", ft_split(NULL, "1"));
+	//printf("%s\n", ft_split("", "1"));
+	//printf("%s\n", ft_split("1ciao1", "1"));
+	//printf("%s\n", ft_split("ciao", "1"));
+	//printf("%s\n", ft_split("ciao", NULL));
 
 	return (0);
 }

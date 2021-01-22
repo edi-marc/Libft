@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 17:41:07 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/19 16:03:42 by edi-marc         ###   ########.fr       */
+/*   Created: 2021/01/21 16:09:44 by edi-marc          #+#    #+#             */
+/*   Updated: 2021/01/21 17:33:18 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t i;
+	char	*p;
+	size_t	i;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	p = NULL;
+	if (s1 && set)
+	{
+		while (*s1 && ft_strchr(set, *s1))
+			s1++;
+		i = ft_strlen(s1);
+		while (i && ft_strchr(set, s1[i]))
+			i--;
+		p = ft_substr(s1, 0, i + 1);
+	}
+	return (p);
 }
