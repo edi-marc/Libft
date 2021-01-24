@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 15:15:11 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/22 16:39:28 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/01/24 20:40:32 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,22 @@ void	rebuild(char *str_n, char *str_u, char *str_s, char *str_m, char *str_b, ch
 	strcpy(str_m, "c1ao_a");
 	strcpy(str_b, "ciao_a_tutti");
 	strcpy(str_i, "Iao");
+}
+
+void	print_split(char **p)
+{
+	if(p)
+	{
+		while(*p)
+		{
+			printf("%p : ", &*p);
+			printf("%s\n", *p);
+			p++;
+		}
+		printf("*p nullo : %p , contenuto : %p\n", &*p,*p);
+	}
+	else
+		printf("**p nullo : %p\n", p);
 }
 
 int main(void)
@@ -764,12 +780,55 @@ int main(void)
 
 	printf("\n-- TEST ft_split --\n");
 
-	//printf("%s\n", ft_split("ciao1ci1ao", "1"));
-	//printf("%s\n", ft_split(NULL, "1"));
-	//printf("%s\n", ft_split("", "1"));
-	//printf("%s\n", ft_split("1ciao1", "1"));
-	//printf("%s\n", ft_split("ciao", "1"));
-	//printf("%s\n", ft_split("ciao", NULL));
+	printf("\n-- 1 --\n");
+	print_split(ft_split(NULL, '1'));
+	printf("\n-- 2 --\n");
+	print_split(ft_split("ciao1ci1ao", '1'));
+	printf("\n-- 3 --\n");
+	print_split(ft_split("", '1'));
+	printf("\n-- 4 --\n");
+	print_split(ft_split("ciao", 0));
+	printf("\n-- 5 --\n");
+	print_split(ft_split("1ciao1", '1'));
+	printf("\n-- 6 --\n");
+	print_split(ft_split("ciao", 1));
+	printf("\n-- 7 --\n");
+	print_split(ft_split("", 0));
+	printf("\n-- 8 --\n");
+	print_split(ft_split("111111", '1'));
+	printf("\n-- 9 --\n");
+	print_split(ft_split("ci\0a1o", '1'));
+	printf("\n-- 10 --\n");
+	print_split(ft_split("xxxciaocxxcixaoxxcxxx", 'x'));
+	printf("\n-- 11 --\n");
+	print_split(ft_split("\n\nciao\n\nciao\n\n\n", '\n'));
+	printf("\n-- 12 --\n");
+	print_split(ft_split("wtf..?", -1));
+	printf("\n-- 13 --\n");
+	print_split(ft_split("\200", '\200'));
+	printf("\n-- 14 --\n");
+	print_split(ft_split("really?", '\200'));
+	printf("\n-- 15 --\n");
+	print_split(ft_split("please_stop\0", '\0'));
+	printf("\n-- 16 --\n");
+	print_split(ft_split("\0ok....", '\0'));
+	
+	printf("\n-- TEST ft_itoa --\n");
 
+	printf("\n-- 1 --\n");
+	printf("%s\n",ft_itoa(1234));
+	printf("\n-- 2 --\n");
+	printf("%s\n",ft_itoa(0));
+	printf("\n-- 3 --\n");
+	printf("%s\n",ft_itoa(-1));
+	printf("\n-- 4 --\n");
+	printf("%s\n",ft_itoa(9));
+	printf("\n-- 5 --\n");
+	printf("%s\n",ft_itoa(-324454));
+	printf("\n-- 6 --\n");
+	printf("%s\n",ft_itoa(2147483647));
+	printf("\n-- 7 --\n");
+	printf("%s\n",ft_itoa(-2147483648));
+	
 	return (0);
 }
