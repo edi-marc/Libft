@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:16:58 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/25 17:21:00 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/01/25 19:24:06 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	ft_putendl_fd(char *s, int fd)
 	char	endl;
 
 	endl = '\n';
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd(endl, fd);
+	if (s)
+	{
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd(endl, fd);
+	}
 }

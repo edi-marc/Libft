@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:36:30 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/25 17:50:01 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/01/25 19:07:17 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	char	*nbr;
 
-	if ((nbr = ft_itoa(n))
-			ft_putstr_fd(nbr, fd);
+	if ((nbr = ft_itoa(n)))
+		ft_putstr_fd(nbr, fd);
 }

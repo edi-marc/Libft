@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 15:15:11 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/25 17:50:06 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/01/25 19:49:24 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -867,11 +867,22 @@ int main(void)
 
 	ft_putendl_fd("ciaociao", 1);
 	ft_putendl_fd("ciao\nciao", 2);
+	ft_putendl_fd("the cake is a lie !\0I'm hidden lol\r\n", 2);
 	
 	printf("\n-- TEST ft_putnbr_fd --\n");
 
-	ft_putnbr_fd(12, 1);
-	ft_putnbr_fd(42, 2);
+	ft_putnbr_fd(-12, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putnbr_fd(+42, 2);
+	ft_putchar_fd('\n', 1);
+	ft_putnbr_fd(-2147483648, 2);
+	ft_putchar_fd('\n', 1);
+	ft_putnbr_fd(2147483647, 2);
+	ft_putchar_fd('\n', 1);
+	ft_putnbr_fd(0, 2);
+	ft_putchar_fd('\n', 1);
+	ft_putnbr_fd(-0, 2);
+	ft_putchar_fd('\n', 1);
 
 	return (0);
 }
