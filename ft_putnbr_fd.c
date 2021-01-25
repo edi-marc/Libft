@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 19:51:51 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/25 11:48:16 by edi-marc         ###   ########.fr       */
+/*   Created: 2021/01/25 17:36:30 by edi-marc          #+#    #+#             */
+/*   Updated: 2021/01/25 17:50:01 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*p;
-	size_t	len;
-	size_t	i;
+	char	*nbr;
 
-	p = NULL;
-	i = 0;
-	if (s && f)
-	{
-		len = ft_strlen(s);
-		if ((p = ft_calloc(len + 1, sizeof(*p))))
-		{
-			while (i < len)
-			{
-				p[i] = f(i, s[i]);
-				i++;
-			}
-		}
-	}
-	return (p);
+	if ((nbr = ft_itoa(n))
+			ft_putstr_fd(nbr, fd);
 }

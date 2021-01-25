@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 15:15:11 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/24 20:40:32 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/01/25 17:50:06 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,16 @@ void	print_split(char **p)
 	}
 	else
 		printf("**p nullo : %p\n", p);
+}
+
+char	add_i_to_char(unsigned int i, char c)
+{
+	return (c + i);
+}
+
+char	minus_i_to_char(unsigned int i, char c)
+{
+	return (c - i);
 }
 
 int main(void)
@@ -830,5 +840,38 @@ int main(void)
 	printf("\n-- 7 --\n");
 	printf("%s\n",ft_itoa(-2147483648));
 	
+	printf("\n-- TEST ft_strmapi --\n");
+
+	printf("\n-- 1 --\n");
+	printf("%s\n",ft_strmapi("1234", add_i_to_char));
+	printf("\n-- 2 --\n");
+	printf("%s\n",ft_strmapi("00000", minus_i_to_char));
+
+	printf("\n-- TEST ft_putchar_fd --\n");
+
+	ft_putchar_fd('6', 1);
+	ft_putchar_fd('\n', 1);
+	ft_putchar_fd('6', 2);
+	ft_putchar_fd('\n', 1);
+	
+	printf("\n-- TEST ft_putstr_fd --\n");
+
+	ft_putstr_fd("ciaociao", 1);
+	ft_putchar_fd('\n', 1);
+	// seg fault - correct behaviour
+	//ft_putstr_fd((char *)'c', 2);
+	ft_putstr_fd("si\0questo_no", 2);
+	ft_putchar_fd('\n', 1);
+	
+	printf("\n-- TEST ft_putendl_fd --\n");
+
+	ft_putendl_fd("ciaociao", 1);
+	ft_putendl_fd("ciao\nciao", 2);
+	
+	printf("\n-- TEST ft_putnbr_fd --\n");
+
+	ft_putnbr_fd(12, 1);
+	ft_putnbr_fd(42, 2);
+
 	return (0);
 }
