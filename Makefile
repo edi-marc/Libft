@@ -6,7 +6,7 @@
 #    By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/16 18:02:01 by edi-marc          #+#    #+#              #
-#    Updated: 2021/01/25 17:34:17 by edi-marc         ###   ########.fr        #
+#    Updated: 2021/01/28 18:52:19 by edi-marc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,11 @@ SRCS = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c \
 	   ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 	   ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 
+BSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+
 OBJS = $(SRCS:.c=.o)
+
+BOBJS = $(BSRCS:.c=.o)
 
 INCLUDE = libft.h
 
@@ -47,11 +51,17 @@ $(NAME): $(OBJS) $(INCLUDE)
 	@make clean	
 
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(BOBJS)
 
 fclean: clean
 	@$(RM) $(NAME)
 
+bonus: $(OBJS) $(BOBJS) $(INCLUDE)
+	@$(LIB2) $(NAME) $(OBJS) $(BOBJS)
+	@make clean
+
 re: fclean all
 
-.PHONY: all clean fclean re
+bre: fclean bonus
+
+.PHONY: all clean fclean re bre bonus

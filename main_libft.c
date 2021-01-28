@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 15:15:11 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/25 19:49:24 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/01/28 19:54:47 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,31 @@ char	add_i_to_char(unsigned int i, char c)
 char	minus_i_to_char(unsigned int i, char c)
 {
 	return (c - i);
+}
+
+void	print_elem(t_list *elem)
+{
+	printf("content: %s\n", elem->content);
+	printf("next: %p\n\n", elem->next);
+}
+
+void	print_lst(t_list **lst)
+{
+	if(lst && *lst)
+	{
+		t_list *elem;
+		
+		elem = *lst;
+		while(elem)
+		{
+			print_elem(elem);
+			elem = elem->next;
+		}
+	}
+	else if (!lst)
+		printf("lista nulla\n");
+	else
+		printf("lista vuota\n");
 }
 
 int main(void)
@@ -883,6 +908,47 @@ int main(void)
 	ft_putchar_fd('\n', 1);
 	ft_putnbr_fd(-0, 2);
 	ft_putchar_fd('\n', 1);
+
+	printf("\n___ BONUS ___\n");
+	printf("\n-- TEST ft_lstnew --\n");
+
+	t_list *elem = ft_lstnew("eccomi qui!");
+	t_list *elem2 = ft_lstnew(NULL);
+
+	print_elem(elem);
+	print_elem(elem2);
+	
+	printf("\n-- TEST ft_lst_add_front --\n");
+
+	t_list **lst;
+
+	lst = &elem;
+   
+	printf("\n-- prima --\n");
+	
+	print_lst(lst);
+
+	printf("\n-- dopo --\n");
+	
+	ft_lstadd_front(lst, elem2);
+
+	print_lst(lst);
+
+	printf("\n-- TEST ft_lstsize --\n");
+	
+	printf("size list = %d\n",ft_lstsize(*lst));
+
+	t_list *elem3 = ft_lstnew("ciao");
+
+	ft_lstadd_front(lst, elem3);
+
+	printf("size list = %d\n\n",ft_lstsize(*lst));
+	
+	print_lst(lst);
+	
+	printf("\n-- TEST ft_lstlast --\n");
+	
+	print_elem(ft_lstlast(*lst));
 
 	return (0);
 }

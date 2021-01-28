@@ -1,50 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 17:36:30 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/26 16:12:39 by edi-marc         ###   ########.fr       */
+/*   Created: 2021/01/28 18:18:11 by edi-marc          #+#    #+#             */
+/*   Updated: 2021/01/28 18:34:07 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		put(int c, int fd)
+int	ft_lstsize(t_list *lst)
 {
-	char r;
+	int i;
 
-	r = c + 48;
-	ft_putchar_fd(r, fd);
-}
-
-static	void	divide(long int numbr, int fd)
-{
-	long int num;
-
-	num = numbr;
-	if (numbr / 10)
+	i = 0;
+	while (lst)
 	{
-		num = numbr % 10;
-		numbr = numbr / 10;
-		divide(numbr, fd);
-		put(num, fd);
+		i++;
+		lst = lst->next;
 	}
-	else
-		put(num, fd);
-}
-
-void			ft_putnbr_fd(int n, int fd)
-{
-	long int	lnb;
-
-	lnb = n;
-	if (lnb < 0)
-	{
-		lnb = lnb * -1;
-		ft_putchar_fd(45, fd);
-	}
-	divide(lnb, fd);
+	return (i);
 }

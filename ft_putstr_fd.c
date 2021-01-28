@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:38:33 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/25 19:22:17 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/01/26 15:07:12 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putstr_fd(char *s, int fd)
 
 	if (s)
 	{
-		len = ft_strlen(s) + 1;
+		len = ft_strlen(s);
 		i = 0;
 		while (i < len)
 		{
