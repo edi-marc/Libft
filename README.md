@@ -20,7 +20,7 @@ make re
 ```
 
 
-The following command build the complete library, also with the bonus functions
+The following command builds the complete library, also with the bonus functions
 ```
 make bre
 ```
