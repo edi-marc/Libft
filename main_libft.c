@@ -6,9 +6,16 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 15:15:11 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/28 19:54:47 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/01/31 16:44:21 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**
+**	Main to test all the functions of the libft library
+**
+*/
+
 
 #include <stdio.h>
 #include <string.h>
@@ -79,6 +86,35 @@ void	print_lst(t_list **lst)
 		printf("lista vuota\n");
 }
 
+/* this function is used to delete the content of the item declared t_list on libft.h */
+/* assuming content is treated as a string */
+
+void	delete_item_content(void *content)
+{
+	if(content)
+		ft_memcpy(content, "\0", 1);
+}
+
+/* this function is used to change the content of the item declared t_list on libft.h */
+/* assuming content is treated as a string */
+
+void	change_item_content(void *content)
+{
+	if(content)
+		ft_memcpy(content, "GG\0", 3);
+}
+
+/* this function is used to return a new content for the item declared t_list on libft.h */
+/* assuming content is treated as a string (not destructive on the passed content) */
+
+void	*new_item_content(void *content)
+{
+	char *new_content = ft_calloc(4, sizeof(*new_content));
+	if(content && new_content)
+		ft_memcpy(new_content, "NEW\0", 4);
+	return (new_content);
+}
+
 int main(void)
 {
 	char str_n[]="";
@@ -128,6 +164,8 @@ int main(void)
 	printf("%d\n",atoi(num_6));
 	printf("%d\n",atoi(num_7));
 	printf("%d\n",atoi(num_8));
+	printf("%d\n",atoi("-9999999999999999999999999999999"));
+	printf("%d\n",atoi("9999999999999999999999999999999"));
 	
 	printf("TEST ft function\n");
 	printf("%d\n",ft_atoi(num_1));
@@ -138,6 +176,8 @@ int main(void)
 	printf("%d\n",ft_atoi(num_6));
 	printf("%d\n",ft_atoi(num_7));
 	printf("%d\n",ft_atoi(num_8));
+	printf("%d\n",ft_atoi("-9999999999999999999999999999"));
+	printf("%d\n",ft_atoi("9999999999999999999999999999"));
 	
 	printf("\n-- TEST strlen --\n\n");
 
@@ -781,7 +821,9 @@ int main(void)
 	printf("%s\n", ft_substr("", 0, 2));
 	printf("%s\n", ft_substr(NULL, 0, 2));
 	printf("%s\n", ft_substr("ciaoatutti", 0, 42));
-	printf("%s\n", ft_substr("ciaoatutti", -1, -2));
+	printf("%s\n", ft_substr("ciaoatutti", -0, -2));
+	printf("%s\n", ft_substr("ciaoatutti", 0, -1));
+	printf("%s\n", ft_substr("ciaoatutti", -42, 42));
 	printf("%s\n", ft_substr("ciaoatutti", 0, 42));
 	printf("%s\n", ft_substr("ciaoatutti", 10, 2));
 	printf("%s\n", ft_substr("ciaoatutti", 9, 1));
@@ -801,7 +843,8 @@ int main(void)
 
 	printf("%s\n", ft_strtrim("dciaod", "d"));
 	printf("%s\n", ft_strtrim("\200dciao\200d", "d\200"));
-	printf("%s\n", ft_strtrim("\0ciao\0", "\0"));
+	printf("%s\n", ft_strtrim("\0ciaod\0", "\0d"));
+	printf("%s\n", ft_strtrim("ciao\0", "\0"));
 	printf("%s\n", ft_strtrim("\0ciao\0a", "\0a"));
 	printf("%s\n", ft_strtrim("\0ciao\na\0", "\0a"));
 	printf("%s\n", ft_strtrim("ciaoatutti", ""));
@@ -812,7 +855,9 @@ int main(void)
 	// correct behavoir
 	printf("%s\n", ft_strtrim("ciao", "ci\0ao"));
 	printf("%s\n", ft_strtrim("aaciaoaa", "a"));
-
+	printf("%s\n", ft_strtrim("aaquiaaa", "a"));
+	printf("%s\n", ft_strtrim("abdciaoabd", "dbaf"));
+	
 	printf("\n-- TEST ft_split --\n");
 
 	printf("\n-- 1 --\n");
@@ -912,7 +957,9 @@ int main(void)
 	printf("\n___ BONUS ___\n");
 	printf("\n-- TEST ft_lstnew --\n");
 
-	t_list *elem = ft_lstnew("eccomi qui!");
+	char string[] = "eccomi qui!";
+	t_list *elem = ft_lstnew(string);
+
 	t_list *elem2 = ft_lstnew(NULL);
 
 	print_elem(elem);
@@ -938,7 +985,8 @@ int main(void)
 	
 	printf("size list = %d\n",ft_lstsize(*lst));
 
-	t_list *elem3 = ft_lstnew("ciao");
+	char string42[] = "ciao";
+	t_list *elem3 = ft_lstnew(string42);
 
 	ft_lstadd_front(lst, elem3);
 
@@ -950,5 +998,87 @@ int main(void)
 	
 	print_elem(ft_lstlast(*lst));
 
+	printf("\n-- TEST ft_lstadd_back --\n");
+	
+	printf("\n-- prima --\n");
+	
+	print_lst(lst);
+
+	printf("\n-- dopo --\n");
+	
+	char string2[] = "ancora...";
+	t_list *elem4 = ft_lstnew(string2);
+	
+	ft_lstadd_back(lst, elem4);
+
+	print_lst(lst);
+
+	printf("\n-- TEST 2 --\n");
+	
+	t_list *elem_null = NULL;
+
+	t_list **lst2 = &elem_null;	
+
+	printf("\n-- prima --\n");
+	
+	print_lst(lst2);
+
+	printf("\n-- dopo --\n");
+	
+	ft_lstadd_back(lst2, elem4);
+
+	print_lst(lst2);
+
+	printf("\n-- TEST ft_lstdelone --\n");
+
+	char test[]= "ciao";
+
+	t_list *elem5 = ft_lstnew(test);
+
+	print_elem(elem5);
+	
+	ft_lstdelone(elem5, delete_item_content);
+
+	// the element is printed and accessible because free does'nt change in any way the memory allocated
+	print_elem(elem5);
+	
+	printf("\n-- TEST ft_lstmap --\n");
+	
+	printf("\n-- lista originale --\n");
+	
+	print_lst(lst);
+	
+	printf("\n-- mapped list --\n");	
+
+	t_list *lst4;
+
+	lst4 = ft_lstmap(*lst, new_item_content, delete_item_content);
+
+	print_lst(&lst4);
+
+	printf("\n-- TEST ft_lstiter --\n");
+	
+	printf("\n-- prima --\n");
+	
+	print_lst(lst);
+	
+	printf("\n-- dopo --\n");	
+
+	ft_lstiter(*lst, change_item_content);
+
+	print_lst(lst);
+
+	printf("\n-- TEST ft_lstclear --\n");
+
+	printf("\n-- prima --\n");
+	
+	print_lst(lst);
+	
+	printf("\n-- dopo --\n");	
+
+	ft_lstclear(lst, delete_item_content);
+
+	print_lst(lst);
+	
 	return (0);
 }

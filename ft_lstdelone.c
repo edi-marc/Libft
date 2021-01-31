@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/21 16:09:44 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/31 13:23:31 by edi-marc         ###   ########.fr       */
+/*   Created: 2021/01/29 12:45:07 by edi-marc          #+#    #+#             */
+/*   Updated: 2021/01/30 19:43:54 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	char	*p;
-	size_t	i;
-
-	p = NULL;
-	if (s1 && set)
+	if (lst)
 	{
-		while (*s1 && ft_strchr(set, *s1))
-			s1++;
-		i = ft_strlen(s1);
-		while (i && ft_strchr(set, s1[i]))
-			i--;
-		p = ft_substr(s1, 0, i + 1);
+		if (del)
+			del(lst->content);
+		lst->next = NULL;
+		free(lst);
 	}
-	return (p);
 }

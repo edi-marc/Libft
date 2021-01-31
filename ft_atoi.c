@@ -6,9 +6,21 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 16:17:07 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/19 16:08:29 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/01/31 16:45:25 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** LIBRARY: libft
+** SYNOPSIS: convert ASCII string to integer
+**
+** DESCRIPTION:
+** 		The atoi() function converts the initial portion of the string pointed
+**	to by str to int representation.
+**
+**	The function has an undefined behavior if the representation of the string
+**	overflows the type int
+*/
 
 static	const char		*jump_space(const char *str)
 {
