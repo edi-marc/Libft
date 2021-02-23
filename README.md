@@ -10,7 +10,7 @@ See the subjects for further information
 
 ## Getting Started
 
-The repository contain a main, usefull to test the functions.
+The repository contains a main, usefull to test the functions.
 
 ### Build the library
 
