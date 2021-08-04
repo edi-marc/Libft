@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 10:54:22 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/29 11:42:49 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/08/04 18:24:18 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *elem;
+	t_list	*elem;
 
 	if (lst && new)
 	{

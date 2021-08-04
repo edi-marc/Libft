@@ -6,15 +6,15 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:36:30 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/26 16:12:39 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/08/04 18:30:57 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		put(int c, int fd)
+static void	put(int c, int fd)
 {
-	char r;
+	char	r;
 
 	r = c + 48;
 	ft_putchar_fd(r, fd);
@@ -22,7 +22,7 @@ static void		put(int c, int fd)
 
 static	void	divide(long int numbr, int fd)
 {
-	long int num;
+	long int	num;
 
 	num = numbr;
 	if (numbr / 10)
@@ -36,7 +36,7 @@ static	void	divide(long int numbr, int fd)
 		put(num, fd);
 }
 
-void			ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	long int	lnb;
 

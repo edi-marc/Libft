@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 18:17:11 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/24 14:57:09 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/08/04 18:35:12 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,15 @@ static	size_t	malloc_write_word(size_t len, char **p, char const *s)
 	trig = 1;
 	while (*p)
 		p++;
-	if ((*p = ft_calloc(len + 1, sizeof(**p))))
+	*p = ft_calloc(len + 1, sizeof(**p));
+	if (*p)
 		ft_strlcpy(*p, s, len + 1);
 	else
 		trig = free_all(p);
 	return (trig);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**p;
 	size_t	i;
@@ -92,7 +93,8 @@ char			**ft_split(char const *s, char c)
 
 	p = NULL;
 	trig = 0;
-	if (s && (p = ft_calloc(count_words(s, c) + 1, sizeof(*p))))
+	p = ft_calloc(count_words(s, c) + 1, sizeof(*p));
+	if (s && p)
 	{
 		i = 0;
 		while (s[i] && trig != 2)

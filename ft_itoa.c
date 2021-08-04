@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 15:52:13 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/24 19:26:25 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/08/04 18:23:34 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	check_sign(long int n)
 {
-	size_t s;
+	size_t	s;
 
 	s = 0;
 	if (n < 0)
@@ -24,7 +24,7 @@ static size_t	check_sign(long int n)
 
 static size_t	count_digits(long int n)
 {
-	size_t num;
+	size_t	num;
 
 	num = 0;
 	if (!n)
@@ -37,7 +37,7 @@ static size_t	count_digits(long int n)
 	return (num);
 }
 
-static void		convert(long int n, char *p, size_t s, size_t len)
+static void	convert(long int n, char *p, size_t s, size_t len)
 {
 	if (!n)
 		*p = 48;
@@ -51,7 +51,7 @@ static void		convert(long int n, char *p, size_t s, size_t len)
 		*p = 45;
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char		*p;
 	size_t		len;
@@ -66,7 +66,8 @@ char			*ft_itoa(int n)
 		ln = ln * -1;
 	digits = count_digits(ln);
 	len = s + digits + 1;
-	if ((p = ft_calloc(len, sizeof(*p))))
+	p = ft_calloc(len, sizeof(*p));
+	if (p)
 		convert(ln, p, s, len);
 	return (p);
 }

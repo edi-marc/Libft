@@ -6,21 +6,21 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 18:59:34 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/12 16:10:50 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/08/04 18:43:04 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *p;
-	char ch;
+	char	*p;
+	char	ch;
 
 	p = 0;
 	ch = c;
 	while (*s != '\0')
 	{
 		if (*s == ch)
-			p = (char*)s;
+			p = (char *)s;
 		s++;
 	}
 	if (*s == '\0' && c == 0)

@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 12:23:31 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/31 15:44:51 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/08/04 18:43:30 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static size_t	adj_len(char const *s, unsigned int start, size_t len)
 	return (a_len);
 }
 
-char			*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*p;
 	size_t	i;

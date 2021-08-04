@@ -6,7 +6,7 @@
 /*   By: edi-marc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 17:14:55 by edi-marc          #+#    #+#             */
-/*   Updated: 2021/01/30 20:39:50 by edi-marc         ###   ########.fr       */
+/*   Updated: 2021/08/04 18:28:34 by edi-marc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	new_lst = NULL;
 	if (lst && f)
 	{
-		if ((temp = ft_lstnew(f(lst->content))))
+		temp = ft_lstnew(f(lst->content));
+		if (temp)
 		{
 			new_lst = temp;
 			lst = lst->next;
