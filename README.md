@@ -1,14 +1,18 @@
 # Libft
 
-Project for 42_Roma
+Project for [42 Roma Luiss](https://42roma.it/) 
 
 The aim of this project is to code a C library regrouping usual functions that you’ll be allowed to use in all your other projects.
 
+## Getting Started
+
+The project inside the folder [Libft_v1](Libft_v1) refers to an initial and much older version, tested only on the Mac OS operating system.
+In the folder named [Libft](Libft), we find a recent version of the project developed and tested on a Linux environment.
+
 See the subjects for further information
 
-[SUBJECTS](Resources/)
-
-## Getting Started
+[SUBJECTS of old project](Resources/Libft_v1)
+[SUBJECT of new project](Resources/Libft)
 
 The repository contains a main, usefull to test the functions.
 
