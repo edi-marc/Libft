@@ -15,13 +15,13 @@ that you will use during your whole cursus.
 
 The project inside the folder [Libft_v1](Libft_v1) refers to an initial and much older version, tested only on the Mac OS operating system.
 
-In the folder named [Libft](Libft), we find a recent version of the project developed and tested on a Linux environment.
+In the main folder, we find a recent version of the project developed and tested on a Linux environment.
 
 See the subjects for further information:
 
 [SUBJECTS of old project](Resources/Libft_v1)
 
-[SUBJECT of new project](Resources/Libft)
+[SUBJECT of new project](Resources)
 
 The repository contains a main, usefull to test the functions.
 
