@@ -6,7 +6,7 @@
 /*   By: emdi-mar <emdi-mar@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 23:45:04 by emdi-mar          #+#    #+#             */
-/*   Updated: 2024/09/07 14:07:42 by emdi-mar         ###   ########.fr       */
+/*   Updated: 2024/09/07 18:12:06 by emdi-mar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,27 +253,27 @@ int main(void)
 	printf("\n-- TEST memset --\n\n");
 
 	printf("TEST original function\n");
-	printf("%s\n",memset(str_u, 126, 2));
+	printf("%s\n",(char *)(memset(str_u, 126, 2)));
 	// gcc error - overflow
 	//printf("%s\n",memset(str_n, 126, 3));
-	printf("%s\n",memset(str_s, 42, 1));
-	printf("%s\n",memset(str_m, 42, 5));
-	printf("%s\n",memset(str_b, 300, 1));
-	printf("%s\n",memset(str_i, 300, (0)));
+	printf("%s\n",(char *)(memset(str_s, 42, 1)));
+	printf("%s\n",(char *)(memset(str_m, 42, 5)));
+	printf("%s\n",(char *)(memset(str_b, 300, 1)));
+	printf("%s\n",(char *)(memset(str_i, 300, (0))));
 
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
 	
 	printf("TEST ft function\n");
-	printf("%s\n",ft_memset(str_u, 126, 2));
+	printf("%s\n",(char *)ft_memset(str_u, 126, 2));
 	// no error - copying outside the range of the string | fill the entire string
 	// printf("%s\n",ft_memset(str_n, 126, 3));
-	printf("%s\n",ft_memset(str_s, 42, 1));
-	printf("%s\n",ft_memset(str_m, 42, 5));
-	printf("%s\n",ft_memset(str_b, 300, 1));
-	printf("%s\n",ft_memset(str_i, 300, 0));
+	printf("%s\n",(char *)(ft_memset(str_s, 42, 1)));
+	printf("%s\n",(char *)(ft_memset(str_m, 42, 5)));
+	printf("%s\n",(char *)(ft_memset(str_b, 300, 1)));
+	printf("%s\n",(char *)(ft_memset(str_i, 300, 0)));
 
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
-/*
+
 	printf("\n-- TEST bzero --\n\n");
 	
 	printf("TEST original function\n");
@@ -293,7 +293,7 @@ int main(void)
 	write(1,"\n", 1);
 
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
-
+/*
 	printf("\n-- TEST memcpy --\n\n");
 	
 	printf("TEST original function\n");

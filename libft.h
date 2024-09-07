@@ -6,7 +6,7 @@
 /*   By: emdi-mar <emdi-mar@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 23:52:19 by emdi-mar          #+#    #+#             */
-/*   Updated: 2024/05/29 00:21:16 by emdi-mar         ###   ########.fr       */
+/*   Updated: 2024/09/07 16:14:24 by emdi-mar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_strlen(const char *s);
 //int					ft_strncmp(const char *s1, const char *s2, size_t n);
 //char				*ft_strrchr(const char *s, int c);
 //char				*ft_strchr(const char *s, int c);
-//void				ft_bzero(void *s, size_t n);
+void				ft_bzero(void *s, size_t n);
 //void				*ft_memcpy(void *dst, const void *src, size_t n);
 //void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 //void				*ft_memmove(void *dst, const void *src, size_t len);
