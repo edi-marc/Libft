@@ -39,7 +39,12 @@ make bre
 ```
 
 
-For testing the library with the main, use this command:
+For testing the library with the main, use these commands:
+MACOS:
 ```
 gcc -Wall -Werror -Wextra -L . -lft main_libft.c
+```
+LINUX:
+```
+gcc main_libft.c -L. -lft
 ```
