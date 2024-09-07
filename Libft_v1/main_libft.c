@@ -6,7 +6,7 @@
 /*   By: emdi-mar <emdi-mar@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 23:45:04 by emdi-mar          #+#    #+#             */
-/*   Updated: 2024/09/07 14:07:42 by emdi-mar         ###   ########.fr       */
+/*   Updated: 2024/05/28 23:45:09 by emdi-mar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,16 @@
 
 #include "libft.h"
 
-#define STR_N	""
-#define STR_U	"c"
-#define STR_S	"ciao"
-#define STR_M	"c1ao_a"
-#define STR_B	"ciao_a_tutti"
-#define STR_I	"Iao"
-
 void	rebuild(char *str_n, char *str_u, char *str_s, char *str_m, char *str_b, char *str_i)
 {
-	strcpy(str_n, STR_N);
-	strcpy(str_u, STR_U);
-	strcpy(str_s, STR_S);
-	strcpy(str_m, STR_M);
-	strcpy(str_b, STR_B);
-	strcpy(str_i, STR_I);
+	strcpy(str_n, "");
+	strcpy(str_u, "c");
+	strcpy(str_s, "ciao");
+	strcpy(str_m, "c1ao_a");
+	strcpy(str_b, "ciao_a_tutti");
+	strcpy(str_i, "Iao");
 }
-/*
+
 void	print_split(char **p)
 {
 	if(p)
@@ -92,28 +85,28 @@ void	print_lst(t_list **lst)
 	else
 		printf("lista vuota\n");
 }
-*/
+
 /* this function is used to delete the content of the item declared t_list on libft.h */
 /* assuming content is treated as a string */
-/*
+
 void	delete_item_content(void *content)
 {
 	if(content)
 		ft_memcpy(content, "\0", 1);
 }
-*/
+
 /* this function is used to change the content of the item declared t_list on libft.h */
 /* assuming content is treated as a string */
-/*
+
 void	change_item_content(void *content)
 {
 	if(content)
 		ft_memcpy(content, "GG\0", 3);
 }
-*/
+
 /* this function is used to return a new content for the item declared t_list on libft.h */
 /* assuming content is treated as a string (not destructive on the passed content) */
-/*
+
 void	*new_item_content(void *content)
 {
 	char *new_content = ft_calloc(4, sizeof(*new_content));
@@ -121,15 +114,15 @@ void	*new_item_content(void *content)
 		ft_memcpy(new_content, "NEW\0", 4);
 	return (new_content);
 }
-*/
+
 int main(void)
 {
-	char str_n[]=STR_N;
-	char str_u[]=STR_U;
-	char str_s[]=STR_S;
-	char str_m[]=STR_M;
-	char str_b[]=STR_B;
-	char str_i[]=STR_I;
+	char str_n[]="";
+	char str_u[]="c";
+	char str_s[]="ciao";
+	char str_m[]="c1ao_a";
+	char str_b[]="ciao_a_tutti";
+	char str_i[]="Iao";
 	char str_v[1]="\0";
 	char *str_a;
 
@@ -141,7 +134,7 @@ int main(void)
 	char num_6[]=" 	-42";
 	char num_7[]="-214748364942";
 	char num_8[]=" 	 -56b";
-/*	
+	
 	printf("\n-- TEST strncmp --\n\n");
 
 	printf("TEST original function\n");
@@ -185,7 +178,7 @@ int main(void)
 	printf("%d\n",ft_atoi(num_8));
 	printf("%d\n",ft_atoi("-9999999999999999999999999999"));
 	printf("%d\n",ft_atoi("9999999999999999999999999999"));
-*/	
+	
 	printf("\n-- TEST strlen --\n\n");
 
 	printf("TEST original function\n");
@@ -202,50 +195,50 @@ int main(void)
 	printf("%lu\n",ft_strlen(str_b));
 	printf("%lu\n",ft_strlen(str_i));
 
-//	printf("\n-- TEST strrchr --\n\n");
+	printf("\n-- TEST strrchr --\n\n");
 
-//	printf("TEST original function\n");
+	printf("TEST original function\n");
 	/* Not found  - B */
-//	printf("%p\n",strrchr(str_n, 66));
-//	printf("%s\n",strrchr(str_n, 66));
-//	/* null character  */
-//	printf("%p\n",strrchr(str_s, 0));
-//	printf("%s\n",strrchr(str_s, 0));
+	printf("%p\n",strrchr(str_n, 66));
+	printf("%s\n",strrchr(str_n, 66));
+	/* null character  */
+	printf("%p\n",strrchr(str_s, 0));
+	printf("%s\n",strrchr(str_s, 0));
 	/* last character - o  */
-//	printf("%p\n",strrchr(str_s, 111));
-//	printf("%s\n",strrchr(str_s, 111));
+	printf("%p\n",strrchr(str_s, 111));
+	printf("%s\n",strrchr(str_s, 111));
 	/* first character - c */
-//	printf("%p\n",strrchr(str_m, 99));
-//	printf("%s\n",strrchr(str_m, 99));
+	printf("%p\n",strrchr(str_m, 99));
+	printf("%s\n",strrchr(str_m, 99));
 	/* third character - a  */
-//	printf("%p\n",strrchr(str_s, 97));
-//	printf("%s\n",strrchr(str_s, 97));
+	printf("%p\n",strrchr(str_s, 97));
+	printf("%s\n",strrchr(str_s, 97));
 	/* penultimate character - t */
-//	printf("%p\n",strrchr(str_b, 116));
-//	printf("%s\n",strrchr(str_b, 116));
+	printf("%p\n",strrchr(str_b, 116));
+	printf("%s\n",strrchr(str_b, 116));
 	/* int not in ascii - loop */
 	//printf("%p\n",ft_strrchr(str_b, 242));
 	//printf("%s\n",ft_strrchr(str_b, 242));
 	
-//	printf("TEST ft function\n");
+	printf("TEST ft function\n");
 	/* Not found  - B */
-//	printf("%p\n",ft_strrchr(str_n, 66));
-//	printf("%s\n",ft_strrchr(str_n, 66));
+	printf("%p\n",ft_strrchr(str_n, 66));
+	printf("%s\n",ft_strrchr(str_n, 66));
 	/* null character  */
-//	printf("%p\n",ft_strrchr(str_s, 0));
-//	printf("%s\n",ft_strrchr(str_s, 0));
+	printf("%p\n",ft_strrchr(str_s, 0));
+	printf("%s\n",ft_strrchr(str_s, 0));
 	/* last character - o  */
-//	printf("%p\n",ft_strrchr(str_s, 111));
-//	printf("%s\n",ft_strrchr(str_s, 111));
+	printf("%p\n",ft_strrchr(str_s, 111));
+	printf("%s\n",ft_strrchr(str_s, 111));
 	/* first character - c */
-//	printf("%p\n",ft_strrchr(str_m, 99));
-//	printf("%s\n",ft_strrchr(str_m, 99));
+	printf("%p\n",ft_strrchr(str_m, 99));
+	printf("%s\n",ft_strrchr(str_m, 99));
 	/* third character - a  */
-//	printf("%p\n",ft_strrchr(str_s, 97));
-//	printf("%s\n",ft_strrchr(str_s, 97));
+	printf("%p\n",ft_strrchr(str_s, 97));
+	printf("%s\n",ft_strrchr(str_s, 97));
 	/* penultimate character - t */
-//	printf("%p\n",ft_strrchr(str_b, 116));
-//	printf("%s\n",ft_strrchr(str_b, 116));
+	printf("%p\n",ft_strrchr(str_b, 116));
+	printf("%s\n",ft_strrchr(str_b, 116));
 	/* int not in ascii - null */
 	//printf("%p\n",ft_strrchr(str_b, 242));
 	//printf("%s\n",ft_strrchr(str_b, 242));
@@ -273,7 +266,7 @@ int main(void)
 	printf("%s\n",ft_memset(str_i, 300, 0));
 
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
-/*
+
 	printf("\n-- TEST bzero --\n\n");
 	
 	printf("TEST original function\n");
@@ -411,49 +404,49 @@ int main(void)
 	printf("%s\n", ft_memchr(str_b, 116, 20));
 	
 	printf("\n-- TEST strchr --\n\n");
-*/
-//	printf("TEST original function\n");
-//	/* Not found  - B */
-//	printf("%p\n",strchr(str_n, 66));
-//	printf("%s\n",strchr(str_n, 66));
-//	/* null character  */
-//	printf("%p\n",strchr(str_s, 0));
-//	printf("%s\n",strchr(str_s, 0));
+
+	printf("TEST original function\n");
+	/* Not found  - B */
+	printf("%p\n",strchr(str_n, 66));
+	printf("%s\n",strchr(str_n, 66));
+	/* null character  */
+	printf("%p\n",strchr(str_s, 0));
+	printf("%s\n",strchr(str_s, 0));
 	/* last character - o  */
-//	printf("%p\n",strchr(str_s, 111));
-//	printf("%s\n",strchr(str_s, 111));
+	printf("%p\n",strchr(str_s, 111));
+	printf("%s\n",strchr(str_s, 111));
 	/* first character - c */
-//	printf("%p\n",strchr(str_m, 99));
-//	printf("%s\n",strchr(str_m, 99));
+	printf("%p\n",strchr(str_m, 99));
+	printf("%s\n",strchr(str_m, 99));
 	/* third character - a  */
-//	printf("%p\n",strchr(str_s, 97));
-//	printf("%s\n",strchr(str_s, 97));
+	printf("%p\n",strchr(str_s, 97));
+	printf("%s\n",strchr(str_s, 97));
 	/* penultimate character - t */
-//	printf("%p\n",strchr(str_b, 116));
-//	printf("%s\n",strchr(str_b, 116));
+	printf("%p\n",strchr(str_b, 116));
+	printf("%s\n",strchr(str_b, 116));
 	/* int not in ascii - loop */
 	//printf("%p\n",ft_strchr(str_b, 242));
 	//printf("%s\n",ft_strchr(str_b, 242));
 	
-//	printf("TEST ft function\n");
+	printf("TEST ft function\n");
 	/* Not found  - B */
-//	printf("%p\n",ft_strchr(str_n, 66));
-//	printf("%s\n",ft_strchr(str_n, 66));
+	printf("%p\n",ft_strchr(str_n, 66));
+	printf("%s\n",ft_strchr(str_n, 66));
 	/* null character  */
-//	printf("%p\n",ft_strchr(str_s, 0));
-//	printf("%s\n",ft_strchr(str_s, 0));
+	printf("%p\n",ft_strchr(str_s, 0));
+	printf("%s\n",ft_strchr(str_s, 0));
 	/* last character - o  */
-//	printf("%p\n",ft_strchr(str_s, 111));
-//	printf("%s\n",ft_strchr(str_s, 111));
+	printf("%p\n",ft_strchr(str_s, 111));
+	printf("%s\n",ft_strchr(str_s, 111));
 	/* first character - c */
-//	printf("%p\n",ft_strchr(str_m, 99));
-//	printf("%s\n",ft_strchr(str_m, 99));
+	printf("%p\n",ft_strchr(str_m, 99));
+	printf("%s\n",ft_strchr(str_m, 99));
 	/* third character - a  */
-//	printf("%p\n",ft_strchr(str_s, 97));
-//	printf("%s\n",ft_strchr(str_s, 97));
+	printf("%p\n",ft_strchr(str_s, 97));
+	printf("%s\n",ft_strchr(str_s, 97));
 	/* penultimate character - t */
-//	printf("%p\n",ft_strchr(str_b, 116));
-//	printf("%s\n",ft_strchr(str_b, 116));
+	printf("%p\n",ft_strchr(str_b, 116));
+	printf("%s\n",ft_strchr(str_b, 116));
 	/* int not in ascii - null */
 	//printf("%p\n",ft_strchr(str_b, 242));
 	//printf("%s\n",ft_strchr(str_b, 242));
@@ -553,7 +546,7 @@ int main(void)
 	printf("%d\n", ft_isprint(126));
 	printf("%d\n", ft_isprint(128));
 	printf("%d\n", ft_isprint('\115'));
-/*
+
 	printf("\n-- TEST toupper --\n\n");
 
 	printf("TEST original function\n");
@@ -696,7 +689,6 @@ int main(void)
 	printf("%s\n", str_u);
 	printf("%lu\n", strlcat(str_b, str_v, 3));
 	printf("%s\n", str_b);
-*/
 /*
 	write(1, "*--SP TEST--*\n", 14);	
 	char test1[42] = "\0q\0due";
@@ -708,7 +700,7 @@ int main(void)
 	write(1, test1, 42);
 	write(1, "\n", 1);
 	write(1, "*--SP TEST--*\n", 14);	
-
+*/
 /*
  *	test is not empty, there is some data in the memory	
  *
@@ -726,7 +718,7 @@ int main(void)
 	// gcc error overflow
 	//printf("%lu\n", strlcat(str_m, str_s, -1));
 	//printf("%lu\n", strlcat(str_n, str_b, 42));
-/*	
+	
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
 	
 	printf("TEST ft function\n");
@@ -771,7 +763,7 @@ int main(void)
 	// no error overflow
 	//printf("%lu\n", ft_strlcat(str_m, str_s, -1));
 	//printf("%lu\n", ft_strlcat(str_n, str_b, 42));
-/*	
+	
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
 	
 	printf("\n-- TEST strnstr --\n\n");
@@ -1087,6 +1079,6 @@ int main(void)
 	ft_lstclear(lst, delete_item_content);
 
 	print_lst(lst);
-*/	
+	
 	return (0);
 }
