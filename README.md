@@ -40,11 +40,13 @@ make bre
 
 
 For testing the library with the main, use these commands:
-MACOS:
+
+>MacOS:
 ```
 gcc -Wall -Werror -Wextra -L . -lft main_libft.c
 ```
-LINUX:
+
+>GNU/Linux:
 ```
 gcc main_libft.c -L. -lft
 ```
