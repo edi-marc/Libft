@@ -6,7 +6,7 @@
 /*   By: emdi-mar <emdi-mar@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 23:45:04 by emdi-mar          #+#    #+#             */
-/*   Updated: 2024/09/07 18:12:06 by emdi-mar         ###   ########.fr       */
+/*   Updated: 2024/09/09 20:50:10 by emdi-mar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -293,35 +293,35 @@ int main(void)
 	write(1,"\n", 1);
 
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
-/*
+
 	printf("\n-- TEST memcpy --\n\n");
 	
 	printf("TEST original function\n");
 	str_a = str_b + 5;
-	printf("%s\n", memcpy(str_a, str_b, 6));
-	printf("%s\n", memcpy(str_s, str_i, 2));
+	printf("%s\n", (char *)(memcpy(str_a, str_b, 6)));
+	printf("%s\n", (char *)(memcpy(str_s, str_i, 2)));
 	memcpy(str_m, str_n, 5);
 	write(1, &str_m, 6);
 	write(1, "\n", 1);
 	// gcc error - overflow
 	//printf("%s\n", memcpy(str_n, str_u, 3));
-	printf("%s\n", memcpy(str_u, str_b, 0));
+	printf("%s\n", (char *)(memcpy(str_u, str_b, 0)));
 	
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
 
 	printf("TEST ft function\n");
 	str_a = str_b + 5;
-	printf("%s\n", ft_memcpy(str_a, str_b, 6));
-	printf("%s\n", ft_memcpy(str_s, str_i, 2));
+	printf("%s\n", (char *)(ft_memcpy(str_a, str_b, 6)));
+	printf("%s\n", (char *)(ft_memcpy(str_s, str_i, 2)));
 	ft_memcpy(str_m, str_n, 5);
 	write(1, &str_m, 6);
 	write(1, "\n", 1);
 	// no error - overflow
 	//printf("%s\n", ft_memcpy(str_n, str_u, 3));
-	printf("%s\n", ft_memcpy(str_u, str_b, 0));
+	printf("%s\n", (char *)(ft_memcpy(str_u, str_b, 0)));
 
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
-
+/*
 	printf("\n-- TEST memccpy --\n\n");
 	
 	printf("TEST original function\n");
@@ -329,16 +329,16 @@ int main(void)
 	//str_a = str_b + 5;
 	//printf("%s\n", memccpy(str_a, str_b, 42, 6));
 	//printf("%s\n", str_b);
-	printf("%s\n", memccpy(str_s, str_i, 97, 3));
+	printf("%s\n", (char *)(memccpy(str_s, str_i, 97, 3)));
 	printf("%s\n", str_s);
-	printf("%s\n", memccpy(str_m, str_u, 42, 5));
+	printf("%s\n", (char *)(memccpy(str_m, str_u, 42, 5)));
 	write(1, &str_m, 6);
 	write(1, "\n", 1);
 	// gcc error - overflow
 	//printf("%s\n", memccpy(str_n, str_u, 42, 3));
-	printf("%s\n", memccpy(str_u, str_b, 42, 0));
+	printf("%s\n", (char *)(memccpy(str_u, str_b, 42, 0)));
 	printf("%s\n", str_u);
-	printf("%s\n", memccpy(str_u, str_b, 97, 0));
+	printf("%s\n", (char *)(memccpy(str_u, str_b, 97, 0)));
 	printf("%s\n", str_u);
 
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
@@ -348,52 +348,52 @@ int main(void)
 	//str_a = str_b + 5;
 	//printf("%s\n", ft_memccpy(str_a, str_b, 42, 6));
 	//printf("%s\n", str_b);
-	printf("%s\n", ft_memccpy(str_s, str_i, 97, 3));
+	printf("%s\n", (char *)(ft_memccpy(str_s, str_i, 97, 3)));
 	printf("%s\n", str_s);
-	printf("%s\n", ft_memccpy(str_m, str_u, 42, 5));
+	printf("%s\n", (char *)(ft_memccpy(str_m, str_u, 42, 5)));
 	write(1, &str_m, 6);
 	write(1, "\n", 1);
 	// no error - overflow
 	//printf("%s\n", ft_memccpy(str_n, str_u, 42, 3));
-	printf("%s\n", ft_memccpy(str_u, str_b, 42, 0));
+	printf("%s\n", (char *)(ft_memccpy(str_u, str_b, 42, 0)));
 	printf("%s\n", str_u);
-	printf("%s\n", ft_memccpy(str_u, str_b, 97, 0));
+	printf("%s\n", (char *)(ft_memccpy(str_u, str_b, 97, 0)));
 	printf("%s\n", str_u);
 
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
-
+*/
 	printf("\n-- TEST memmove --\n\n");
 	
 	printf("TEST original function\n");
 	str_a = str_b + 5;
-	printf("%s\n", memmove(str_a, str_b, 6));
-	printf("%s\n", memmove(str_s, str_i, 3));
-	printf("%s\n", memmove(str_m, str_u, 5));
+	printf("%s\n", (char *)(memmove(str_a, str_b, 6)));
+	printf("%s\n", (char *)(memmove(str_s, str_i, 3)));
+	printf("%s\n", (char *)(memmove(str_m, str_u, 5)));
 	write(1, &str_m, 6);
 	write(1, "\n", 1);
 	// gcc error - overflow
 	//printf("%s\n", memmove(str_n, str_u, 3));
-	printf("%s\n", memmove(str_u, str_b, 0));
-	printf("%s\n", memmove(str_n, str_u, 1));
-	printf("%s\n", memmove((void *)0, (void *)0, 5));
+	printf("%s\n", (char *)(memmove(str_u, str_b, 0)));
+	printf("%s\n", (char *)(memmove(str_n, str_u, 1)));
+	printf("%s\n", (char *)(memmove((void *)0, (void *)0, 5)));
 	
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
 	
 	printf("TEST ft function\n");
 	str_a = str_b + 5;
-	printf("%s\n", ft_memmove(str_a, str_b, 6));
-	printf("%s\n", ft_memmove(str_s, str_i, 3));
-	printf("%s\n", ft_memmove(str_m, str_u, 5));
+	printf("%s\n", (char *)(ft_memmove(str_a, str_b, 6)));
+	printf("%s\n", (char *)(ft_memmove(str_s, str_i, 3)));
+	printf("%s\n", (char *)(ft_memmove(str_m, str_u, 5)));
 	write(1, &str_m, 6);
 	write(1, "\n", 1);
 	// no error - overflow
 	//printf("%s\n", ft_memmove(str_n, str_u, 3));
-	printf("%s\n", ft_memmove(str_u, str_b, 0));
-	printf("%s\n", ft_memmove(str_n, str_u, 1));
-	printf("%s\n", ft_memmove((void *)0, (void *)0, 5));
+	printf("%s\n", (char *)(ft_memmove(str_u, str_b, 0)));
+	printf("%s\n", (char *)(ft_memmove(str_n, str_u, 1)));
+	printf("%s\n", (char *)(ft_memmove((void *)0, (void *)0, 5)));
 	
 	rebuild(str_n, str_u, str_s, str_m, str_b, str_i);
-	
+/*	
 	printf("\n-- TEST memchr --\n\n");
 	
 	printf("TEST original function\n");
@@ -464,15 +464,17 @@ int main(void)
 	printf("%d\n", isalpha(65));
 	printf("%d\n", isalpha(64));
 	printf("%d\n", isalpha(121));
-	printf("%d\n", isalpha(123));
 	printf("%d\n", isalpha(500));
+	printf("%d\n", isalpha(123));
+	printf("%d\n", isalpha(122));
 	
 	printf("TEST ft function\n");
 	printf("%d\n", ft_isalpha(65));
 	printf("%d\n", ft_isalpha(64));
 	printf("%d\n", ft_isalpha(121));
-	printf("%d\n", ft_isalpha(122));
 	printf("%d\n", ft_isalpha(500));
+	printf("%d\n", ft_isalpha(123));
+	printf("%d\n", ft_isalpha(122));
 
 	printf("\n-- TEST isdigit --\n\n");
 
