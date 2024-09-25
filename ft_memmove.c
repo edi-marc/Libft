@@ -6,7 +6,7 @@
 /*   By: emdi-mar <emdi-mar@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 20:50:58 by emdi-mar          #+#    #+#             */
-/*   Updated: 2024/09/18 21:21:20 by emdi-mar         ###   ########.fr       */
+/*   Updated: 2024/09/25 21:49:02 by emdi-mar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	i = 0;
 	if (src == NULL || dst == NULL)
-		return (0);
+		return (NULL);
 	if ((size_t)dst > (size_t)src)
 	{
 		while (len-- > 0)

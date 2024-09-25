@@ -6,7 +6,7 @@
 /*   By: emdi-mar <emdi-mar@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 23:45:04 by emdi-mar          #+#    #+#             */
-/*   Updated: 2024/09/18 21:16:52 by emdi-mar         ###   ########.fr       */
+/*   Updated: 2024/09/25 21:43:29 by emdi-mar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -365,14 +365,17 @@ int main(void)
 	printf("\n-- TEST memmove --\n\n");
 	
 	printf("TEST original function\n");
+	//str_a = a_tutti
 	str_a = str_b + 5;
+	//ciao_ai
 	printf("%s\n", (char *)(memmove(str_a, str_b, 6)));
+	//Iaoo
 	printf("%s\n", (char *)(memmove(str_s, str_i, 3)));
 	// gcc error - overflow on reading
 	//printf("%s\n", (char *)(memmove(str_m, str_u, 5)));
-	write(1, &str_m, 6);
-	write(1, "\n", 1);
-	// gcc error - overflow
+	//write(1, &str_m, 6);
+	//write(1, "\n", 1);
+	// gcc error - overflow on reading
 	//printf("%s\n", memmove(str_n, str_u, 3));
 	printf("%s\n", (char *)(memmove(str_u, str_b, 0)));
 	printf("%s\n", (char *)(memmove(str_n, str_u, 1)));
@@ -385,11 +388,12 @@ int main(void)
 	str_a = str_b + 5;
 	printf("%s\n", (char *)(ft_memmove(str_a, str_b, 6)));
 	printf("%s\n", (char *)(ft_memmove(str_s, str_i, 3)));
-	printf("%s\n", (char *)(ft_memmove(str_m, str_u, 5)));
-	write(1, &str_m, 6);
-	write(1, "\n", 1);
+	// No error
+	//printf("%s\n", (char *)(ft_memmove(str_m, str_u, 5)));
+	//write(1, &str_m, 6);
+	//write(1, "\n", 1);
 	// no error - overflow
-	printf("%s\n", (char *)ft_memmove(str_n, str_u, 3));
+	//printf("%s\n", (char *)ft_memmove(str_n, str_u, 3));
 	printf("%s\n", (char *)(ft_memmove(str_u, str_b, 0)));
 	printf("%s\n", (char *)(ft_memmove(str_n, str_u, 1)));
 	// no error
