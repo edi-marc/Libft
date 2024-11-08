@@ -6,7 +6,7 @@
 /*   By: emdi-mar <emdi-mar@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 22:04:41 by emdi-mar          #+#    #+#             */
-/*   Updated: 2024/11/08 22:20:39 by emdi-mar         ###   ########.fr       */
+/*   Updated: 2024/11/08 22:45:13 by emdi-mar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	len;
-	size_t	i;
+	size_t			len;
+	unsigned int	i;
 
 	i = 0;
 	if (s && f)
 	{
 		len = ft_strlen(s);
-		while (i < len)
+		while ((size_t)i < len)
 		{
 			f(i, &(s[i]));
 			i++;
