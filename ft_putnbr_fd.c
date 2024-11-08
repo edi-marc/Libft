@@ -1,23 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdi-mar <emdi-mar@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 18:27:19 by emdi-mar          #+#    #+#             */
-/*   Updated: 2024/11/08 19:17:49 by emdi-mar         ###   ########.fr       */
+/*   Created: 2024/11/08 22:01:22 by emdi-mar          #+#    #+#             */
+/*   Updated: 2024/11/08 22:02:02 by emdi-mar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+static void	put(int c, int fd)
 {
-	void	*p;
+	char	r;
 
-	p = malloc(count * size);
-	if (p)
-		ft_bzero(p, count * size);
-	return (p);
+	r = c + 48;
+	ft_putchar_fd(r, fd);
+}
+
+static	void	divide(long int numbr, int fd)
+{
+	long int	num;
+
+	num = numbr;
+	if (numbr / 10)
+	{
+		num = numbr % 10;
+		numbr = numbr / 10;
+		divide(numbr, fd);
+		put(num, fd);
+	}
+	else
+		put(num, fd);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	long int	lnb;
+
+	lnb = n;
+	if (lnb < 0)
+	{
+		lnb = lnb * -1;
+		ft_putchar_fd(45, fd);
+	}
+	divide(lnb, fd);
 }
