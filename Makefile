@@ -6,7 +6,7 @@
 #    By: emdi-mar <emdi-mar@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 22:59:42 by emdi-mar          #+#    #+#              #
-#    Updated: 2024/11/11 14:15:21 by emdi-mar         ###   ########.fr        #
+#    Updated: 2024/11/11 17:34:58 by emdi-mar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,13 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
+BSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+	ft_lstmap.c
+
 OBJS = $(SRCS:.c=.o)
+
+BOBJS = $(BSRCS:.c=.o)
 
 HEADERS = libft.h
 
@@ -47,11 +53,16 @@ $(NAME):$(OBJS) $(HEADERS)
 	$(LIB2) $(NAME) $(OBJS)	
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BOBJS)
 
 fclean: clean
 	$(RM) $(NAME)
 
+bonus: $(OBJS) $(BOBJS) $(HEADERS)
+	$(LIB2) $(NAME) $(OBJS) $(BOBJS)
+
 re: fclean all
 
-.PHONY: all clean fclean re
+bre: fclean bonus
+
+.PHONY: all clean fclean bonus re bre
