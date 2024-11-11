@@ -6,7 +6,7 @@
 #    By: emdi-mar <emdi-mar@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 22:59:42 by emdi-mar          #+#    #+#              #
-#    Updated: 2024/11/08 21:33:58 by emdi-mar         ###   ########.fr        #
+#    Updated: 2024/11/11 14:15:21 by emdi-mar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,9 @@ PLIB = ranlib
 
 LIB2 = ar rcs
 
-CC = gcc
+CC = cc
+
+GCC = gcc
 	
 RM = /bin/rm -f
 
@@ -42,8 +44,7 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME):$(OBJS) $(HEADERS)
-	$(LIB2) $(NAME) $(OBJS)
-	make -s clean	
+	$(LIB2) $(NAME) $(OBJS)	
 
 clean:
 	$(RM) $(OBJS)
